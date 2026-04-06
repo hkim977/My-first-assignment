@@ -1,7 +1,22 @@
+This exercise covers:
 
-hkim9771852@c4r5s1 ~ % pwd
+* Directory navigation (`pwd`, `cd`)
+* File and directory management (`mkdir`, `touch`, `cp`, `mv`, `rm`)
+* File content manipulation (`echo`, `cat`)
+* File inspection (`ls -la`)
+  
+## 1. Check Current Directory
+Code: pwd
+**Description:**
+Prints the current working directory.
+**Output:**
 /Users/hkim9771852
-hkim9771852@c4r5s1 ~ % ls -la
+__________________________________________
+## 2. List Directory Contents
+Code: ls -la
+**Description:**
+Lists all files and directories (including hidden ones) in long format, showing permissions, ownership, size, and timestamps.
+**Output:**
 total 16
 drwxr-x---+ 20 hkim9771852  hkim9771852   640 Apr  3 18:55 .
 drwxr-xr-x  11 root         admin         352 Apr  3 18:15 ..
@@ -23,175 +38,142 @@ drwx------+  3 hkim9771852  hkim9771852    96 Apr  3 18:15 Music
 drwx------   4 hkim9771852  hkim9771852   160 Apr  3 18:55 OrbStack
 drwx------+  4 hkim9771852  hkim9771852   128 Apr  3 18:16 Pictures
 drwxr-xr-x+  4 hkim9771852  hkim9771852   128 Apr  3 18:15 Public
-hkim9771852@c4r5s1 ~ % mkdir dictation
-hkim9771852@c4r5s1 ~ % cd dictation
-hkim9771852@c4r5s1 dictation % touch Baking.txt
-hkim9771852@c4r5s1 dictation % echo "Hello" > Baking.txt
-hkim9771852@c4r5s1 dictation % cat Baking.txt
-Hello
-hkim9771852@c4r5s1 dictation % cp Baking.txt Baking-copy.txt
-hkim9771852@c4r5s1 dictation % mv Baking-copy.txt Baking-renamed.txt
-hkim9771852@c4r5s1 dictation % rm Baking-renamed.txt
-hkim9771852@c4r5s1 dictation % ls -la
-total 8
-drwxr-xr-x   3 hkim9771852  hkim9771852   96 Apr  3 19:30 .
-drwxr-x---+ 21 hkim9771852  hkim9771852  672 Apr  3 19:24 ..
--rw-r--r--   1 hkim9771852  hkim9771852    6 Apr  3 19:25 Baking.txt
-
-With comments:
-# 📁 Basic File Operations in macOS Terminal
-
-This document demonstrates fundamental file and directory operations using the macOS terminal. Each command is accompanied by a brief explanation.
-
----
-
-## 1. Check Current Directory
-
-```bash
-pwd
-```
-
-**Description:**
-Prints the current working directory.
-
-**Output:**
-
-```
-/Users/hkim9771852
-```
-
----
-
-## 2. List Directory Contents
-
-```bash
-ls -la
-```
-
-**Description:**
-Lists all files and directories (including hidden ones) in long format, showing permissions, ownership, size, and timestamps.
-
----
-
+________________________________________________
 ## 3. Create a New Directory
-
-```bash
-mkdir dictation
-```
-
+Code: mkdir dictation
 **Description:**
 Creates a new directory named `dictation`.
-
----
-
+_______________________________________________
 ## 4. Navigate into Directory
-
-```bash
-cd dictation
-```
-
+Code: cd dictation
 **Description:**
 Changes the current working directory to `dictation`.
-
----
-
+________________________________________________________
 ## 5. Create a New File
-
-```bash
-touch Baking.txt
-```
-
+Code: touch Baking.txt
 **Description:**
 Creates an empty file named `Baking.txt`.
-
----
-
+_______________________________________________________
 ## 6. Write Content to File
-
-```bash
-echo "Hello" > Baking.txt
-```
-
+Code: echo "Hello"> Baking.txt
 **Description:**
 Writes the text `"Hello"` into `Baking.txt`.
-
 * If the file already exists, it will be overwritten.
-
----
-
+_____________________________________________________
 ## 7. Display File Contents
-
-```bash
-cat Baking.txt
-```
-
+Code: cat Baking.txt
 **Description:**
 Displays the contents of `Baking.txt`.
-
 **Output:**
-
-```
 Hello
-```
-
----
-
+_____________________________________________________
 ## 8. Copy a File
-
-```bash
-cp Baking.txt Baking-copy.txt
-```
-
+Code: cp Baking.txt Baking-copy.txt
 **Description:**
 Creates a copy of `Baking.txt` named `Baking-copy.txt`.
-
----
-
+_____________________________________________________
 ## 9. Rename a File
-
-```bash
-mv Baking-copy.txt Baking-renamed.txt
-```
-
+Code: mv Baking-copy.txt Baking-renamed.txt
 **Description:**
-Renames `Baking-copy.txt` to `Baking-renamed.txt`.
-
----
-
+Renames `Baking-copy.txt` as `Baking-renamed.txt`.
+____________________________________________________
 ## 10. Delete a File
-
-```bash
-rm Baking-renamed.txt
-```
-
+code: rm Baking-renamed.txt
 **Description:**
-Deletes the file `Baking-renamed.txt`.
-
----
-
+Deletes the file named `Baking-renamed.txt`.
+____________________________________________________
 ## 11. Verify Final Directory Contents
-
-```bash
-ls -la
-```
-
+Code: ls -la
 **Description:**
 Confirms the remaining files in the directory.
+**Output:**
+total 0
+drwxrwxrwx 1 root root 4096 Apr  6 23:08 .
+drwxrwxrwx 1 root root 4096 Apr  6 23:07 ..
+-rwxrwxrwx 1 root root    6 Apr  6 23:08 Baking.txt
+drwxrwxrwx 1 root root 4096 Apr  2 23:54 notes
+_______________________________________________________
+## 12. Testing permission
+Step 1: Create one file and one directory
+Code: cd /tmp
+      touch firstfile.txt
+      mkdir firstfolder
+**Description:**
+Creates one file and one directory for testing permission
 
-**Result:**
-Only `Baking.txt` remains.
+Step 2: Check permissions before changing them
+Code: ls -l
+**Description:**
+This command shows current permissions
+**Output:**
+-rwxrwxrwx 1 root root    6 Apr  6 23:08 Baking.txt
+-rwxrwxrwx 1 root root    0 Apr  6 23:13 firstfile.txt
+drwxrwxrwx 1 root root 4096 Apr  6 23:13 firstfolder
+drwxrwxrwx 1 root root 4096 Apr  2 23:54 notes
 
----
+Step 3: Change permissions
+Code: chmod 600 firstfile.txt
+      chmod 700 firstfolder
+**Description:**
+   600 means only owner can read/write file
+   700 means only owner can access directory
 
-## ✅ Summary
-
-This exercise covers:
-
-* Directory navigation (`pwd`, `cd`)
-* File and directory management (`mkdir`, `touch`, `cp`, `mv`, `rm`)
-* File content manipulation (`echo`, `cat`)
-* File inspection (`ls -la`)
-
-These commands form the foundation of working efficiently in a Unix-based terminal environment.
-
----
+Step 4: Check permissions after changing them
+Code: ls -l
+**Description:**
+This command shows updated permissions
+**Output:**
+-rw------- 1 hyun_jee_kim hyun_jee_kim    0 Apr  6 23:31 firstfile.txt
+drwx------ 2 hyun_jee_kim hyun_jee_kim 4096 Apr  6 23:31 firstfolder
+_________________________________________________________________
+## 13. Docker
+   a. check version of Docker:
+      Code: docker --version
+      **Description:**
+      This command confirms whether the docker is installed or not
+      **Output:**
+      Docker version 29.3.1, build c2be9cc
+  b. check Docker info:
+     Code: docker info
+      **Description:**
+      This command shows info of Docker
+      **Output:**
+      Client:
+      Version:    29.3.1
+      Context:    desktop-linux
+      Debug Mode: false
+      Plugins:
+      agent: Docker AI Agent Runner (Docker Inc.)
+      Version:  v1.34.0
+      Path: C:\Program Files\Docker\cli-plugins\docker-agent.exe
+  c. Docker Basic operations
+      i) Check images
+         Code: docker images
+         **Description:**
+         This command is used to create blueprint to make one or more Docker containers.
+          **Output:**                                      
+          IMAGE           ID             DISK USAGE   CONTENT SIZE   EXTRA
+          docker/welcome-to-docker:latest
+                          c4d56c24da4f       22.2MB         6.03MB    U
+          python:latest   ffebef43892d       1.63GB          432MB    U
+      ii) check running containers
+          Code: docker ps
+          **Description:**
+          This command is used to check running containers
+          **Output:** 
+          CONTAINER ID   IMAGE     COMMAND     CREATED      STATUS         PORTS     NAMES
+          531e1c33ad86   python    "python3"   3 days ago   Up 4 minutes             sad_tesla
+      iii) check all containers
+           Code: docker ps -a
+           **Description:**
+           This command is used to check all running containers
+           **Output:** 
+           CONTAINER ID   IMAGE                             COMMAND                   CREATED      STATUS                       PORTS                  NAMES
+            531e1c33ad86   python                            "python3"                 3 days ago   Up 6 minutes                                        sad_tesla
+            b48e95953001   python                            "python3"                 3 days ago   Exited (0) 3 days ago                               happy_poitras
+            19e36c73244f   python                            "python3"                 3 days ago   Exited (255) 6 minutes ago                          awesome_taussig
+            6401b5ca0638   docker/welcome-to-docker:latest   "/docker-entrypoint.…"   3 days ago   Exited (255) 6 minutes ago   0.0.0.0:8088->80/tcp   welcome-to-docker
+          
+         
+      
+     
