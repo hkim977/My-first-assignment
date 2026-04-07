@@ -173,7 +173,123 @@ _________________________________________________________________
             b48e95953001   python                            "python3"                 3 days ago   Exited (0) 3 days ago                               happy_poitras
             19e36c73244f   python                            "python3"                 3 days ago   Exited (255) 6 minutes ago                          awesome_taussig
             6401b5ca0638   docker/welcome-to-docker:latest   "/docker-entrypoint.…"   3 days ago   Exited (255) 6 minutes ago   0.0.0.0:8088->80/tcp   welcome-to-docker
+            
+    d. Run hello-world
+       Code: docker run hello-world
+       **Description:**
+       This command is used to confirm that Docker can successfully run containers
+       **Output:**
+       Hello from Docker!
+       This message shows that your installation appears to be working correctly.
+       
+    e. Run ubuntu container
+       Code: docker run -it ubuntu bash
+       **Description:**
+       This command is used to run ubuntu
+       i) inside container
+          Code: echo hello
+          **Description:**
+          This command is used to print hello in the terminal
+          **Output:**
+          hello
           
+      f. Create Flask app
+         Code: echo from flask import Flask > app\app.py
+               echo app = Flask(__name__) >> app\app.py
+               echo @app.route("/") >> app\app.py
+               echo def home(): >> app\app.py
+               echo    return "Docker mission success" >> app\app.py
+               echo app.run(host = "0.0.0.0", port = 5000) >> app\app.py
+               type app\app.py
+              **Description:**
+              **Output:**
+              from flask import Flask
+              app = Flask(__name__)
+              @app.route("/")
+              def home():
+                    return "Docker mission success"
+              app.run(host = "0.0.0.0", port = 5000)
+              
+        g. create dockerfile
+           Code: echo FROM python:3.12 > Dockerfile
+                 echo WORKDIR  /app >> Dockerfile
+                 echo COPY app/app.py  . >> Dockerfile
+                 echo RUN pip install flask >> Dockerfile
+                 echo CMD ["python", "app.py"] >> Dockerfile
+           **Description:**
+           Creates dockerfile
+           
+        h. build an image
+           code: docker build -t myflask .
+           **Description:**
+           Docker build tells Docker to create an image, -t myflask names my image as myflask and . tells Docker
+           to look for the Dockerfile in my current folder.
+            **Output:**
+            [internal] load build definition from   0.0s
+             => => transferring dockerfile: 143B        0.0s
+             => [internal] load metadata for docker.io  1.7s
+             => [auth] library/python:pull token for r  0.0s
+             => [internal] load .dockerignore           0.0s
+             => => transferring context: 2B             0.0s
+             => [1/4] FROM docker.io/library/python:3.  7.9s
+             => => resolve docker.io/library/python:3.  0.0s
+             => => sha256:32314f4c8cf88755 250B / 250B  0.5s
+             => => sha256:45d437fd4e 25.72MB / 25.72MB  6.1s
+             => => sha256:50cff32ed7ce 6.09MB / 6.09MB  4.0s
+             => => extracting sha256:50cff32ed7ce0b0de  0.7s
+             => => extracting sha256:45d437fd4e78c768f  1.7s
+             => => extracting sha256:32314f4c8cf88755b  0.0s
+             => [internal] load build context           0.1s
+             => => transferring context: 228B           0.1s
+             => [2/4] WORKDIR /app                      0.4s
+             => [3/4] COPY app/app.py  .                0.1s
+             => [4/4] RUN pip install flask             7.6s
+             => exporting to image                      2.7s
+             => => exporting layers                     1.7s
+             => => exporting manifest sha256:953b0e18b  0.0s
+             => => exporting config sha256:d09c4aaa376  0.0s
+             => => exporting attestation manifest sha2  0.0s
+             => => exporting manifest list sha256:1d03  0.0s
+             => => naming to docker.io/library/myflask  0.0s
+             => => unpacking to docker.io/library/myfl  1.6s
+      i. Run the container && open browser
+         Code: docker run -p 5000:5000 myflask, http://localhost:5000
+         **Output:**
+         Docker mission success
+      j. Verify that the container is running:
+          Code: docker ps
+          **Output:**
+          CONTAINER ID   IMAGE     COMMAND     CREATED      STATUS             PORTS     NAMES
+          531e1c33ad86   python    "python3"   4 days ago   Up About an hour             sad_tesla
+      k. Compare attach & exec
+         Code: docker attach 531e1c33ad86, docker exec -it 531e1c33ad86 bash
+         Explanation: Attach - reconnects to main running process, exec - opens a new shell
+      l. Test docker's volume
+        i)create volume:docker volume create myvolume
+          **Output:** myvolume
+        ii) run volume container && exit: docker run -it -v myvolume:/data ubuntu bash,echo hello > /data/test.txt, exit
+        iii) re-run container: docker run -it -v myvolume:/data ubuntu bash, cat /data/test.txt
+             **Output:** hello, exit
+      m. remove the container
+         Code: docker rm b7613c8dc632
+         **Description:** removes the container that has the container_id
+      n. Check the other images that still exist
+         Code: docker images
+         **Description:** checks other images that haven't been deleted yet
+         **Output:**
+                                     
+          IMAGE                   ID             DISK USAGE
+          docker/welcome-to-docker:latest
+                                  c4d56c24da4f       22.2MB
+          hello-world:latest      452a468a4bf9       25.9kB
+          myflask:latest          1d03520e359e       1.62GB
+          python:latest           ffebef43892d       1.63GB
+
+Troubleshooting example:
+1. Flask app not staying active: check if the container within the Flask desktop application is active
+2. Error in creating a dockerfile: check the spellings of commands in the command prompt(especially the 'COPY app/app.py' command)
          
-      
-     
+        
+         
+                        
+                        
