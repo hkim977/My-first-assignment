@@ -1,8 +1,48 @@
 Bind mount: lets you change the container instantly whenever you change a file on your Mac
-1. Start a web server named my-app-final, connect it to my computer's port 8080, and 
-make it show the files currently sitting in my html folder
-Code: docker run -d -p 8080:80 --name my-app-final -v $(pwd)/html:/usr/share/nginx/html my-web
-Result: e34e6267eb7757282af4ad121175752d99c147dbf126a085e2189ea9857e048e
+1. Build a home for my website
+hkim9771852@c4r8s1 ~ % mkdir -p website_files
+2. Write a message in it
+hkim9771852@c4r8s1 ~ % echo '<h1>Finally Success!</h1>' > website_files/index.html
+3. Remove old container by force
+hkim9771852@c4r8s1 ~ % docker rm -f my-bind-server
+4. Bind Mount
+  hkim9771852@c4r8s1 ~ % docker run -d \
+  -p 8080:80 \
+  --name my-bind-server \
+  -v /Users/hkim9771852/website_files:/usr/share/nginx/html \
+  nginx:alpine
+5. Check whether bird mount is working or not
+hkim9771852@c4r8s1 ~ % docker exec my-bind-server ls /usr/share/nginx/html
+Output: index.html
 
-2. Before changing the container:
- 
+6. Before changing the container:
+ <!DOCTYPE html>
+<html>
+<head>
+<title>Welcome to nginx!</title>
+<style>
+html { color-scheme: light dark; }
+body { width: 35em; margin: 0 auto;
+font-family: Tahoma, Verdana, Arial, sans-serif; }
+</style>
+</head>
+<body>
+<h1>Welcome to nginx!</h1>
+<p>If you see this page, nginx is successfully installed and working.
+Further configuration is required for the web server, reverse proxy, 
+API gateway, load balancer, content cache, or other features.</p>
+
+<p>For online documentation and support please refer to
+<a href="https://nginx.org/">nginx.org</a>.<br/>
+To engage with the community please visit
+<a href="https://community.nginx.org/">community.nginx.org</a>.<br/>
+For enterprise grade support, professional services, additional 
+security features and capabilities please refer to
+<a href="https://f5.com/nginx">f5.com/nginx</a>.</p>
+
+<p><em>Thank you for using nginx.</em></p>
+</body>
+</html>
+
+7. After changing the container:
+<h1>Finally Success!</h1>
