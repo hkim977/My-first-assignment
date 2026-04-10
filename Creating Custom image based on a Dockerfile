@@ -1,7 +1,39 @@
-1. Turn my instructions into a runnable container
+1. 
+2. Turn my instructions into a runnable container
 hkim9771852@c4r8s1 ~ % docker build -t my-web .
   Breakdown: docker build - start creating a new container image
              -t - short for tag, gives image a friendly name
              my-web: name of my image
              . : tells Docker to look for the Dockerfile in the current directory
   Summary: build an image called my-web using a Dockerfile located in this folder.
+Output:
+   => [internal] load build definition from Dockerfile                       0.1s
+   => => transferring dockerfile: 49B                                        0.0s
+   => [internal] load metadata for docker.io/library/alpine:latest           2.6s
+   => [internal] load .dockerignore                                          0.1s
+   => => transferring context: 2B                                            0.0s
+   => [1/1] FROM docker.io/library/alpine:latest@sha256:25109184c71bdad752c  1.0s
+   => => resolve docker.io/library/alpine:latest@sha256:25109184c71bdad752c  0.1s
+   => => sha256:25109184c71bdad752c8312a8623239686a9a2071e8 9.22kB / 9.22kB  0.0s
+   => => sha256:59855d3dceb3ae53991193bd03301e082b2a7faa56a 1.02kB / 1.02kB  0.0s
+   => => sha256:a40c03cbb81c59bfb0e0887ab0b1859727075da7b9cc576 611B / 611B  0.0s
+   => => sha256:589002ba0eaed121a1dbf42f6648f29e5be55d5c8a6 3.86MB / 3.86MB  0.6s
+   => => extracting sha256:589002ba0eaed121a1dbf42f6648f29e5be55d5c8a6ee0f8  0.1s
+   => exporting to image                                                     0.0s
+   => => exporting layers                                                    0.0s
+   => => writing image sha256:a40c03cbb81c59bfb0e0887ab0b1859727075da7b9cc5  0.0s
+   => => naming to docker.io/library/my-web                                  0.0s
+
+3. Connect my computer's port to the container's port
+   hkim9771852@c4r8s1 ~ % docker run -d -p 8080:80 --name my-running-app my-web
+   62320af1313a404d3ccd72568976a6563b934739c8c4f22bdc81752c7bfd206f
+   What the code does: Telling Docker this: "Take the 'my-web' app I just built, give it a cool nickname,
+   run it in the background so it doesn't clutter my screen, and open a 'tunnel' so I can visit it in my browser.
+   Code breakdown:
+       docker run: Pushing the start button
+       -d: lets the app run in the background while I keep using my terminal for other stuff
+       Port 8080: Front door of my building
+       Port 80(container): room inside the building
+       --name my-running-app: give my running app a nickname
+  Output: 62320af1313a404d3ccd72568976a6563b934739c8c4f22bdc81752c7bfd206f
+
