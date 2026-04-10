@@ -1,0 +1,7 @@
+1. Turn my instructions into a runnable container
+hkim9771852@c4r8s1 ~ % docker build -t my-web .
+  Breakdown: docker build - start creating a new container image
+             -t - short for tag, gives image a friendly name
+             my-web: name of my image
+             . : tells Docker to look for the Dockerfile in the current directory
+  Summary: build an image called my-web using a Dockerfile located in this folder.
