@@ -1,3 +1,8 @@
 Bind mount: lets you change the container instantly whenever you change a file on your Mac
 1. Start a web server named my-app-final, connect it to my computer's port 8080, and 
 make it show the files currently sitting in my html folder
+Code: docker run -d -p 8080:80 --name my-app-final -v $(pwd)/html:/usr/share/nginx/html my-web
+Result: e34e6267eb7757282af4ad121175752d99c147dbf126a085e2189ea9857e048e
+
+2. Before changing the container:
+ 
