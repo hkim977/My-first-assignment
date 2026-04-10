@@ -1,0 +1,3 @@
+Bind mount: lets you change the container instantly whenever you change a file on your Mac
+1. Start a web server named my-app-final, connect it to my computer's port 8080, and 
+make it show the files currently sitting in my html folder
