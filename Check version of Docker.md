@@ -2,8 +2,11 @@
     hkim9771852@c4r10s1 ~ % docker --version
     Output: Docker version 28.5.2, build ecc6942
 2. Check if the Docker daemon is running:
+   ```bash
     daemon: a program that runs in the background
     Docker daemon listens to Docker's commands and execute them
+   ```
+   ```bash
     hkim9771852@c4r10s1 ~ % docker info
     Output: 
          Client:
@@ -102,6 +105,7 @@
            Base: fd07:b51a:cc66:d000::/56, Size: 64
         
         WARNING: DOCKER_INSECURE_NO_IPTABLES_RAW is set
-3. Check the containers that are currently running
+   ```
+4. Check the containers that are currently running
     hkim9771852@c4r10s1 ~ % docker ps
     Output: CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
