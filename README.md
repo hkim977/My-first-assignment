@@ -24,4 +24,4 @@ Troubleshooting:
 
 terminal logs: pwd, ls -a, mkdir, ls, cd, cp -r, mv, touch, rm, rmdir, cat
 [terminal_logs](./terminal_logs.md)
-[terminal_logs](./terminal_logs.md)
+[Permission_status](./Permission_status.md)
