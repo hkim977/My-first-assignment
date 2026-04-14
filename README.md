@@ -22,5 +22,6 @@ Troubleshooting:
   Reasoning: since mkdir lets a user to create a directory, it only makes sense for the user to name the new directory he or she has just created. 
   solution: mkdir first_assignment
 
-
+terminal logs: pwd, ls -a, mkdir, ls, cd, cp -r, mv, touch, rm, rmdir, cat
+[terminal_logs](./terminal_logs.md)
 [terminal_logs](./terminal_logs.md)
