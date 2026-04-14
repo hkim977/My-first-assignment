@@ -25,3 +25,6 @@ Troubleshooting:
 terminal logs: pwd, ls -a, mkdir, ls, cd, cp -r, mv, touch, rm, rmdir, cat
 [terminal_logs](./terminal_logs.md)
 [Permission_status](./Permission_status.md)
+
+Running and executing commands in Docker: docker version, docker info, docker images, docker ps -a, docker logs
+[Check version of Docker](./Check version of Docker.md)
