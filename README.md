@@ -16,3 +16,10 @@ Task Checklist:
   7. volume - check
 
 Verification method: refer to hyperlinks
+
+Troubleshooting:
+  error #1: mkdir --> mkdir requires 1 argument
+  Reasoning: since mkdir lets a user to create a directory, it only makes sense for the user to name the new directory he or she has just created. 
+  solution: mkdir first_assignment
+
+  error #2: 
