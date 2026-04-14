@@ -29,3 +29,6 @@ terminal logs: pwd, ls -a, mkdir, ls, cd, cp -r, mv, touch, rm, rmdir, cat
 Running and executing commands in Docker: docker version, docker info, docker images, docker ps -a, docker logs
 [Check version of Docker](./Check_version_of_Docker.md)
 [Basic commands](./Docker_execute_basic_commands.md)
+
+Web-server container: Creating Custom image based on dockerfile
+
