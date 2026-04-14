@@ -23,4 +23,4 @@ Troubleshooting:
   solution: mkdir first_assignment
 
 
-[terminal_logs](./terminal_logs.md)
+[terminal_logs](./terminal_logs.txt)
