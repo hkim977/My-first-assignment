@@ -1,7 +1,10 @@
 1. Pull an image from a web-server
+   ```bash
    hkim9771852@c4r8s1 ~ % echo "FROM nginx:alpine" > Dockerfile
    nginx:program
-2. Create a new container image
+   ```
+3. Create a new container image
+```bash
 hkim9771852@c4r8s1 ~ % docker build -t my-web .
   Breakdown: docker build - start creating a new container image
              -t - short for tag, gives image a friendly name
@@ -25,8 +28,10 @@ Output:
    => => exporting layers                                                    0.0s
    => => writing image sha256:a40c03cbb81c59bfb0e0887ab0b1859727075da7b9cc5  0.0s
    => => naming to docker.io/library/my-web                                  0.0s
+```
 
-3. Connect my computer's port to the container's port
+5. Connect my computer's port to the container's port
+   ```bash
    hkim9771852@c4r8s1 ~ % docker run -p 8080:80 --name my-running-app my-web
    62320af1313a404d3ccd72568976a6563b934739c8c4f22bdc81752c7bfd206f
    What the code does: Telling Docker this: "Take the 'my-web' app I just built, give it a cool nickname,
@@ -36,6 +41,8 @@ Output:
        Port 8080: Front door of my building
        Port 80(container): room inside the building
        --name my-running-app: give my running app a nickname
+   ```
+  ```bash
   Output: 
        /docker-entrypoint.sh: /docker-entrypoint.d/ is not empty, will attempt to perform configuration
       /docker-entrypoint.sh: Looking for shell scripts in /docker-entrypoint.d/
@@ -58,7 +65,8 @@ Output:
       2026/04/10 10:39:19 [notice] 1#1: start worker process 33
       2026/04/10 10:39:19 [notice] 1#1: start worker process 34
       2026/04/10 10:39:19 [notice] 1#1: start worker process 35
-4. Check web-server(via the website)
+```
+7. Check web-server(via the website)
    Method: Type http://localhost:8080 in safari
    Result: Welcome to nginx!
           If you see this page, nginx is successfully installed and working. 
