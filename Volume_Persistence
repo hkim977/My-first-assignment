@@ -1,0 +1,38 @@
+Definition of Volume_persistence: data doesn't disappear - even if you delete the container, 
+                                  your file is still going to be there
+
+1. Creating a storage space named mydata in Docker
+   Code: hkim9771852@c4r9s3 ~ % docker volume create first_data
+   Output: first_data
+2. Start a container and keep it running && give the container a special storage space
+   Note: anything written to /data exits  even if the container is deleted
+   Code: hkim9771852@c4r9s3 ~ % docker run -d --name vol-test -v mydata:/data ubuntu sleep infinity
+   Result: latest: Pulling from library/ubuntu
+            689b91d88a0f: Pull complete 
+            Digest: sha256:84e77dee7d1bc93fb029a45e3c6cb9d8aa4831ccfcc7103d36e876938d28895b
+            Status: Downloaded newer image for ubuntu:latest
+            3f190766ff00140de760ba61372d65cd852d6cac7160d5cfc82500770beae9af
+3. Open a terminal inside the running container
+   code: hkim9771852@c4r9s3 ~ % docker exec -it vol-test bash
+4. Verification commands:
+   a. list files: ls
+      bin   data  etc   lib    media  opt   root  sbin  sys  usr
+      boot  dev   home  lib64  mnt    proc  run   srv   tmp  var
+   b. write "hello volume" to the text file named test: echo "hello volume" > /data/test.txt
+   c. read the file: cat /data/test.txt
+      Output: hello volume
+5. remove container
+    a. Code: hkim9771852@c4r9s3 ~ % docker rm -f vol-test
+6. Check current running containers
+    a. Code: docker ps
+        Output: CONTAINER ID   IMAGE          COMMAND                   CREATED          STATUS          PORTS                                     NAMES
+                17c2149fac2d   nginx:alpine   "/docker-entrypoint.…"   30 minutes ago   Up 30 minutes   0.0.0.0:8080->80/tcp, [::]:8080->80/tcp   my-bind-server
+    
+7. Repeat step 2 - step 4 (use a different name for another container)
+  a. Step 2 - same
+      Code: hkim9771852@c4r9s3 ~ % docker run -d --name vol-test-2 -v mydata:/data ubuntu sleep infinity 
+  b. Step 3 - same
+     hkim9771852@c4r9s3 ~ % docker exec -it vol-test-2 bash
+  c. Step 4 - different (only read the file)
+     Output: hello volume
+         
