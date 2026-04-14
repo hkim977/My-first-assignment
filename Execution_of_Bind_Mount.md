@@ -15,11 +15,14 @@ Bind mount: lets you change the container instantly whenever you change a file o
       hkim9771852@c4r9s3 ~ % exec my-bind-server ls /usr/share/nginx/html
       Output: index.html
 ```
+
 2. Change the first message on my website:
+  ```bash
   a. remove old container(old message by force)
      hkim9771852@c4r8s1 ~ % docker rm -f my-bind-server
   b. repeat part (b) to part (d) from step 1(change the message) 
   c. Refresh the page of the website!
+```
 
 
 6. Before changing the container:
