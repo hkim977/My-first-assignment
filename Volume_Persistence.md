@@ -1,5 +1,6 @@
 Definition of Volume_persistence: data doesn't disappear - even if you delete the container, 
                                   your file is still going to be there
+```bash
 
 1. Creating a storage space named mydata in Docker
    Code: hkim9771852@c4r9s3 ~ % docker volume create first_data
@@ -12,6 +13,8 @@ Definition of Volume_persistence: data doesn't disappear - even if you delete th
             Digest: sha256:84e77dee7d1bc93fb029a45e3c6cb9d8aa4831ccfcc7103d36e876938d28895b
             Status: Downloaded newer image for ubuntu:latest
             3f190766ff00140de760ba61372d65cd852d6cac7160d5cfc82500770beae9af
+```
+```bash
 3. Open a terminal inside the running container
    code: hkim9771852@c4r9s3 ~ % docker exec -it vol-test bash
 4. Verification commands:
@@ -23,11 +26,14 @@ Definition of Volume_persistence: data doesn't disappear - even if you delete th
       Output: hello volume
 5. remove container
     a. Code: hkim9771852@c4r9s3 ~ % docker rm -f vol-test
+```
+```bash
 6. Check current running containers
     a. Code: docker ps
         Output: CONTAINER ID   IMAGE          COMMAND                   CREATED          STATUS          PORTS                                     NAMES
                 17c2149fac2d   nginx:alpine   "/docker-entrypoint.…"   30 minutes ago   Up 30 minutes   0.0.0.0:8080->80/tcp, [::]:8080->80/tcp   my-bind-server
-    
+```
+```bash
 7. Repeat step 2 - step 4 (use a different name for another container)
   a. Step 2 - same
       Code: hkim9771852@c4r9s3 ~ % docker run -d --name vol-test-2 -v mydata:/data ubuntu sleep infinity 
@@ -35,4 +41,5 @@ Definition of Volume_persistence: data doesn't disappear - even if you delete th
      hkim9771852@c4r9s3 ~ % docker exec -it vol-test-2 bash
   c. Step 4 - different (only read the file)
      Output: hello volume
+```
          
