@@ -31,9 +31,8 @@ Running and executing commands in Docker: docker version, docker info, docker im
 [Basic commands](./Docker_execute_basic_commands.md)
 
 Port mapping: 
-   a. [Execute container](.
+   a. [Execute container](./Execute_Container.md)
    b. [Creating Custom image based on dockerfile](./Creating_custom_image_based_on_Dockerfile.md)
 
-Port mapping;
-   a. 
+Execution of Bind Mount: [Execution of Bind Mount]
 
