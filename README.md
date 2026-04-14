@@ -22,4 +22,5 @@ Troubleshooting:
   Reasoning: since mkdir lets a user to create a directory, it only makes sense for the user to name the new directory he or she has just created. 
   solution: mkdir first_assignment
 
-  error #2: 
+
+
