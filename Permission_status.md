@@ -31,10 +31,15 @@
 ```
 3. Change permission status
    a) Change permission status of text file
-      hkim9771852@c4r10s1 ~ % chmod 755 second.txt 
+   ```bash
+      hkim9771852@c4r10s1 ~ % chmod 755 second.txt
+   ```
    b) Change permission status of a directory
+   ```bash
       hkim9771852@c4r10s1 ~ % chmod 777 second_dir
+   ```
    c) Check the updated status of each directory(and file)
+   ```bash
       drwx------+  3 hkim9771852  hkim9771852    96 Apr  9 16:05 Desktop
       drwx------+  3 hkim9771852  hkim9771852    96 Apr  9 16:05 Documents
       drwx------+  3 hkim9771852  hkim9771852    96 Apr  9 16:05 Downloads
@@ -47,10 +52,11 @@
       drwxr-xr-x   3 hkim9771852  hkim9771852    96 Apr  9 18:22 first_dir
       -rwxr-xr-x   1 hkim9771852  hkim9771852     0 Apr  9 20:00 second.txt
       drwxrwxrwx   2 hkim9771852  hkim9771852    64 Apr  9 19:56 second_dir
+   ```
       Note: notice that the code for permission status(second.txt) changed
             from -rw-r--r--  to -rwxr-xr-x and that for second_dir changed
             from drwxr-xr-x to drwxrwxrwx
-            from 
+            
       
 
     
