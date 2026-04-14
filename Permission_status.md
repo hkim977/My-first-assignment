@@ -1,5 +1,6 @@
 1. Check permission status
    a) Checking permission status of each directory
+```bash
    hkim9771852@c4r10s1 ~ % ls -l
    Output:
     drwx------+  3 hkim9771852  hkim9771852    96 Apr  9 16:05 Desktop
@@ -27,7 +28,8 @@
     drwxr-xr-x   3 hkim9771852  hkim9771852    96 Apr  9 18:22 first_dir
     drwxr-xr-x   2 hkim9771852  hkim9771852    64 Apr  9 19:56 second_dir
     -rw-r--r--   1 hkim9771852  hkim9771852     0 Apr  9 20:00 second.txt
-2. Change permission status
+```
+3. Change permission status
    a) Change permission status of text file
       hkim9771852@c4r10s1 ~ % chmod 755 second.txt 
    b) Change permission status of a directory
