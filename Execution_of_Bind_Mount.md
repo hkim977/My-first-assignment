@@ -1,4 +1,5 @@
 Bind mount: lets you change the container instantly whenever you change a file on your Mac
+```bash
 1. Write a first message on my website:
    a. Build a home for my website
         hkim9771852@c4r8s1 ~ % mkdir -p website_files
@@ -13,6 +14,7 @@ Bind mount: lets you change the container instantly whenever you change a file o
    d. execute it on the server
       hkim9771852@c4r9s3 ~ % exec my-bind-server ls /usr/share/nginx/html
       Output: index.html
+```
 2. Change the first message on my website:
   a. remove old container(old message by force)
      hkim9771852@c4r8s1 ~ % docker rm -f my-bind-server
